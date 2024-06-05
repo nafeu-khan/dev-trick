@@ -9,7 +9,7 @@ In your Django views, serializers, or models, use gettext (or its alias _) to ma
 views.py:
 
 ``` python
-Copy code
+
 from django.http import JsonResponse
 from django.utils.translation import gettext as _
 
@@ -19,7 +19,7 @@ def my_view(request):
 serializers.py:
 
 python
-Copy code
+
 from rest_framework import serializers
 from django.utils.translation import gettext_lazy as _
 
@@ -50,7 +50,7 @@ Step 1.4: Compile Translation Files
 Compile the message files to binary format.
 
 ``` bash
-Copy code
+
 django-admin compilemessages
 ```
 Step 1.5: Middleware to Activate Translation
@@ -60,7 +60,7 @@ You might want to create middleware to activate the user's language choice.
 middleware.py:
 
 ``` python
-Copy code
+
 from django.utils import translation
 
 class SetLanguageMiddleware:
@@ -77,7 +77,7 @@ class SetLanguageMiddleware:
 Add this middleware to your MIDDLEWARE settings.
 
 ```python
-Copy code
+
 MIDDLEWARE = [
     # other middleware
     'path.to.SetLanguageMiddleware',
@@ -90,7 +90,7 @@ Create an endpoint to get translated messages.
 views.py:
 
 ``` python
-Copy code
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.utils.translation import gettext as _
@@ -103,7 +103,7 @@ class MyView(APIView):
 urls.py:
 
 ```python
-Copy code
+
 from django.urls import path
 from .views import MyView
 
@@ -117,7 +117,7 @@ Step 2.1: Install i18next and React i18next
 In your React project, install i18next and react-i18next.
 
 ```bash
-Copy code
+
 npm install i18next react-i18next i18next-http-backend i18next-browser-languagedetector
 ```
 Step 2.2: Initialize i18next
@@ -127,7 +127,7 @@ Create an i18n.js file to initialize i18next.
 src/i18n.js:
 
 ```javascript
-Copy code
+
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import HttpBackend from 'i18next-http-backend';
@@ -157,7 +157,7 @@ Create translation JSON files for each language.
 public/locales/en/translation.json:
 
 ```json
-Copy code
+
 {
   "Welcome to my site.": "Welcome to my site."
 }
@@ -165,7 +165,7 @@ Copy code
 public/locales/es/translation.json:
 
 ```json
-Copy code
+
 {
   "Welcome to my site.": "Bienvenido a mi sitio."
 }
@@ -177,7 +177,7 @@ Use the useTranslation hook to access translations in your components.
 src/App.js:
 
 ```javascript
-Copy code
+
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import i18n from './i18n';
@@ -211,7 +211,7 @@ Wrap your app with the I18nextProvider.
 src/index.js:
 
 ``` javascript
-Copy code
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
